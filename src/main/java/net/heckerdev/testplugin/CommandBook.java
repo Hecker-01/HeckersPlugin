@@ -1,5 +1,6 @@
 package net.heckerdev.testplugin;
 
+import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
@@ -24,13 +25,18 @@ public class CommandBook implements CommandExecutor {
             ItemStack book = new ItemStack(Material.WRITTEN_BOOK);
             BookMeta bookMeta = (BookMeta) book.getItemMeta();
 
-            BaseComponent[] page0 = new ComponentBuilder("Get 1 diamond and 20 bricks!")
+            BaseComponent[] page0 = new ComponentBuilder("Get 1 diamond and 20 bricks!").color(ChatColor.BLUE).bold(false).underlined(true)
                     .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/kit"))
                     .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Execute /kit.").create()))
+                    .append(" OR ").color(ChatColor.DARK_RED).bold(true).underlined(false)
+                    .append("Get this book (again).").color(ChatColor.BLUE).bold(false).underlined(true)
+                    .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/book"))
+                    .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Execute /book.").create()))
                     .create();
+
             bookMeta.spigot().addPage(page0);
             bookMeta.setTitle("A very cool book!");
-            bookMeta.setAuthor("???");
+            bookMeta.setAuthor("Amogus Bobby");
 
             book.setItemMeta(bookMeta);
 
