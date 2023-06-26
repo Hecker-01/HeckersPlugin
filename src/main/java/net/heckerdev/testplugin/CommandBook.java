@@ -28,7 +28,7 @@ public class CommandBook implements CommandExecutor {
                     .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/kit"))
                     .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Execute /kit.").create()))
                     .create();
-            bookMeta.spigot().addPage(page0);
+            bookMeta.spigot().addPage(page0)
             bookMeta.setTitle("A very cool book!");
             bookMeta.setAuthor("???");
 
