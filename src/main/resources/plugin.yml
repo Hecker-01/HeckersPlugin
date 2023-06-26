@@ -1,0 +1,14 @@
+name: TestPlugin
+version: '${project.version}'
+main: net.heckerdev.testplugin.TestPlugin
+api-version: '1.17'
+# Replace "kit" with the name of your command.
+commands:
+  kit:
+    description: Gives you some items.
+    usage: /kit
+    permission: testplugin.command.kit
+  book:
+    description: Gives you a book.
+    usage: /book
+    permission: testplugin.command.book
