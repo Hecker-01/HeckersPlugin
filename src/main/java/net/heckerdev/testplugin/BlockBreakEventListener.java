@@ -1,5 +1,6 @@
 package net.heckerdev.testplugin;
 
+import org.bukkit.ChatColor;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -13,6 +14,6 @@ public class BlockBreakEventListener implements Listener {
     public void onBlockBreakEvent(BlockBreakEvent event) {
         @NotNull Player player = event.getPlayer();
         @NotNull Block block = event.getBlock();
-        player.sendMessage(player.getName() + " Broke " + block.getType());
+        player.sendMessage(ChatColor.YELLOW + player.getName() + ChatColor.YELLOW + " Broke " + ChatColor.YELLOW + block.getType());
     }
 }

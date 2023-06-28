@@ -11,6 +11,7 @@ public final class TestPlugin extends JavaPlugin {
         // Register our command "kit" (set an instance of your command class as executor)
         this.getCommand("kit").setExecutor(new CommandKit());
         this.getCommand("book").setExecutor(new CommandBook());
+        Bukkit.getPluginManager().registerEvents(new BlockPlaceEventListener(), this);
         Bukkit.getPluginManager().registerEvents(new BlockBreakEventListener(), this);
         getLogger().info("Successfully loaded commands!");
     }
