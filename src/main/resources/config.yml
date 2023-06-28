@@ -1,0 +1,4 @@
+# These need to be either true or false, if you put in anything else it will revert to true.
+Listeners:
+  PlaceMessage: true
+  BreakMessage: true

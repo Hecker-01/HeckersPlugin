@@ -7,13 +7,34 @@ public final class TestPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
-        // Register our command "kit" (set an instance of your command class as executor)
+        saveDefaultConfig();
+
+        // Registering commands.
         this.getCommand("kit").setExecutor(new CommandKit());
         this.getCommand("book").setExecutor(new CommandBook());
-        Bukkit.getPluginManager().registerEvents(new BlockPlaceEventListener(), this);
-        Bukkit.getPluginManager().registerEvents(new BlockBreakEventListener(), this);
-        getLogger().info("Successfully loaded commands!");
+
+        // registering listeners.
+        try {
+            String placeMessage = getConfig().getString("Listeners.PlaceMessage");
+            if (placeMessage == "true") {Bukkit.getPluginManager().registerEvents(new BlockPlaceEventListener(), this);} else if (placeMessage == "false") {return;} else {getLogger().warning("Error in config.yml: Listener.PlaceMessage wasn't a boolean, reverting to true...");Bukkit.getPluginManager().registerEvents(new BlockPlaceEventListener(), this);getConfig().set("Listeners.PlaceMessage", true);saveConfig();};
+        } catch (Exception e) {
+            getLogger().warning("Error in config.yml: Listener.PlaceMessage wasn't a boolean, reverting to true...");
+            Bukkit.getPluginManager().registerEvents(new BlockPlaceEventListener(), this);
+            getConfig().set("Listeners.PlaceMessage", true);
+            saveConfig();
+        }
+        try {
+            String breakMessage = getConfig().getString("Listeners.BreakMessage");
+            if (breakMessage == "true") {Bukkit.getPluginManager().registerEvents(new BlockBreakEventListener(), this);} else if (breakMessage == "false") {return;} else {getLogger().warning("Error in config.yml: Listener.BreakMessage wasn't a boolean, reverting to true...");Bukkit.getPluginManager().registerEvents(new BlockBreakEventListener(), this);getConfig().set("Listeners.BreakMessage", true);saveConfig();};
+        } catch (Exception e) {
+            getLogger().warning("Error in config.yml: Listener.BreakMessage wasn't a boolean, reverting to true...");
+            Bukkit.getPluginManager().registerEvents(new BlockBreakEventListener(), this);
+            getConfig().set("Listeners.BreakMessage", true);
+            saveConfig();
+        }
+
+        // Loaded message.
+        getLogger().info("Successfully loaded TestPlugin!");
     }
 
     @Override
