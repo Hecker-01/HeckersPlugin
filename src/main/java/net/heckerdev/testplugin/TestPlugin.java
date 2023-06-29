@@ -13,7 +13,6 @@ public final class TestPlugin extends JavaPlugin {
         this.getCommand("book").setExecutor(new CommandBook());
 
         // registering listeners.
-
         boolean placeMessage = getConfig().getBoolean("Listeners.PlaceMessage");
         if (placeMessage) {Bukkit.getPluginManager().registerEvents(new BlockPlaceEventListener(), this);}
         boolean breakMessage = getConfig().getBoolean("Listeners.BreakMessage");
