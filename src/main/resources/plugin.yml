@@ -7,8 +7,6 @@ commands:
   kit:
     description: Gives you some items.
     usage: /kit
-    permission: testplugin.command.kit
   book:
     description: Gives you a book.
     usage: /book
-    permission: testplugin.command.book

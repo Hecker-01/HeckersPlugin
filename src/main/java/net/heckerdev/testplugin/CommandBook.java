@@ -20,27 +20,29 @@ public class CommandBook implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
+            if (player.hasPermission("testplugin.command.book")) {
 
-            // Create a new ItemStack (type: diamond)
-            ItemStack book = new ItemStack(Material.WRITTEN_BOOK);
-            BookMeta bookMeta = (BookMeta) book.getItemMeta();
+                // Create a new ItemStack (type: diamond)
+                ItemStack book = new ItemStack(Material.WRITTEN_BOOK);
+                BookMeta bookMeta = (BookMeta) book.getItemMeta();
 
-            BaseComponent[] page0 = new ComponentBuilder("Get 1 diamond and 20 bricks!").color(ChatColor.BLUE).bold(false).underlined(true)
-                    .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/kit"))
-                    .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Execute /kit.").create()))
-                    .append(" OR ").color(ChatColor.DARK_RED).bold(true).underlined(false)
-                    .append("Get this book (again).").color(ChatColor.BLUE).bold(false).underlined(true)
-                    .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/book"))
-                    .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Execute /book.").create()))
-                    .create();
+                BaseComponent[] page0 = new ComponentBuilder("Get 1 diamond and 20 bricks!").color(ChatColor.BLUE).bold(false).underlined(true)
+                        .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/kit"))
+                        .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Execute /kit.").create()))
+                        .append(" OR ").color(ChatColor.DARK_RED).bold(true).underlined(false)
+                        .append("Get this book (again).").color(ChatColor.BLUE).bold(false).underlined(true)
+                        .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/book"))
+                        .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Execute /book.").create()))
+                        .create();
 
-            bookMeta.spigot().addPage(page0);
-            bookMeta.setTitle("A very cool book!");
-            bookMeta.setAuthor("Amogus Bobby");
+                bookMeta.spigot().addPage(page0);
+                bookMeta.setTitle("A very cool book!");
+                bookMeta.setAuthor("Amogus Bobby");
 
-            book.setItemMeta(bookMeta);
+                book.setItemMeta(bookMeta);
 
-            player.getInventory().addItem(book);
+                player.getInventory().addItem(book);
+            } else player.sendMessage(org.bukkit.ChatColor.RED + "⚠ You do not have permission to use this command!");
         } else getLogger().warning("You can only execute this as a player!");
 
         // If the player (or console) uses our command correct, we can return true
