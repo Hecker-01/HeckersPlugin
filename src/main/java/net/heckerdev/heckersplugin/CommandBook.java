@@ -1,4 +1,4 @@
-package net.heckerdev.testplugin;
+package net.heckerdev.heckersplugin;
 
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.BaseComponent;
@@ -12,12 +12,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
-
-import static org.bukkit.Bukkit.getLogger;
+import org.jetbrains.annotations.NotNull;
 
 public class CommandBook implements CommandExecutor {
     @Override
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
             if (player.hasPermission("testplugin.command.book")) {
@@ -42,10 +41,11 @@ public class CommandBook implements CommandExecutor {
                 book.setItemMeta(bookMeta);
 
                 player.getInventory().addItem(book);
+                return true;
             } else player.sendMessage(org.bukkit.ChatColor.RED + "⚠ You do not have permission to use this command!");
-        } else getLogger().warning("You can only execute this as a player!");
-
-        // If the player (or console) uses our command correct, we can return true
+        } else {
+            sender.sendMessage(org.bukkit.ChatColor.DARK_RED + "You can only execute this as a player");
+        }
         return true;
     }
 }

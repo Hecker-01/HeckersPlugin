@@ -1,19 +1,19 @@
-package net.heckerdev.testplugin;
+package net.heckerdev.heckersplugin;
 
 import org.bukkit.ChatColor;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.jetbrains.annotations.NotNull;
 
-public class BlockPlaceEventListener implements Listener {
+public class BlockBreakEventListener implements Listener {
 
     @EventHandler
-    public void onBlockPlaceEvent(BlockPlaceEvent event) {
+    public void onBlockBreakEvent(BlockBreakEvent event) {
         @NotNull Player player = event.getPlayer();
         @NotNull Block block = event.getBlock();
-        player.sendMessage(ChatColor.YELLOW + player.getName() + ChatColor.YELLOW + " Placed " + ChatColor.YELLOW + block.getType());
+        player.sendMessage(ChatColor.YELLOW + player.getName() + ChatColor.YELLOW + " Broke " + ChatColor.YELLOW + block.getType());
     }
 }

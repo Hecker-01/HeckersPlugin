@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>net.heckerdev</groupId>
-    <artifactId>TestPlugin</artifactId>
-    <version>1.1.0</version>
+    <artifactId>HeckersPlugin</artifactId>
+    <version>1.2.0</version>
     <packaging>jar</packaging>
 
-    <name>TestPlugin</name>
+    <name>HeckersPlugin</name>
 
     <properties>
         <java.version>1.8</java.version>
@@ -40,24 +40,6 @@
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
                         </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <version>1.8</version>
-                <executions>
-                    <execution>
-                        <phase>install</phase>
-                        <configuration>
-                            <target>
-                                <copy file="target/${project.artifactId}-${project.version}.jar" tofile="/Users/andre/Downloads/Java/TestServer/plugins/${project.artifactId}-${project.version}.jar"/>
-                            </target>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
                     </execution>
                 </executions>
             </plugin>
