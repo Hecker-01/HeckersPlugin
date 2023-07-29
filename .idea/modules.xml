@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TestPlugin.iml" filepath="$PROJECT_DIR$/TestPlugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HeckersPlugin.iml" filepath="$PROJECT_DIR$/HeckersPlugin.iml" />
     </modules>
   </component>
 </project>
