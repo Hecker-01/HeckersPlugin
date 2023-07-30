@@ -1,8 +1,7 @@
 name: TestPlugin
 version: '${project.version}'
-main: net.heckerdev.testplugin.TestPlugin
+main: net.heckerdev.heckersplugin.HeckersPlugin
 api-version: '1.17'
-# Replace "kit" with the name of your command.
 commands:
   kit:
     description: Gives you some items.
@@ -10,3 +9,6 @@ commands:
   book:
     description: Gives you a book.
     usage: /book
+  groups:
+    description: Get the groups of yourself or another player
+    usage: /groups (optional) <player>

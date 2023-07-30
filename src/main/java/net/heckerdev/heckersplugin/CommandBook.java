@@ -26,7 +26,7 @@ public class CommandBook implements CommandExecutor {
                 BookMeta bookMeta = (BookMeta) book.getItemMeta();
 
                 BaseComponent[] page0 = new ComponentBuilder("Get 1 diamond and 20 bricks!").color(ChatColor.BLUE).bold(false).underlined(true)
-                        .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/kit"))
+                        .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/kit kit1"))
                         .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Execute /kit.").create()))
                         .append(" OR ").color(ChatColor.DARK_RED).bold(true).underlined(false)
                         .append("Get this book (again).").color(ChatColor.BLUE).bold(false).underlined(true)

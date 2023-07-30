@@ -9,7 +9,6 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.jetbrains.annotations.NotNull;
 
 public class BlockBreakEventListener implements Listener {
-
     @EventHandler
     public void onBlockBreakEvent(BlockBreakEvent event) {
         @NotNull Player player = event.getPlayer();
