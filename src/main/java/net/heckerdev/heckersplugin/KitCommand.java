@@ -18,7 +18,7 @@ public class KitCommand implements CommandExecutor {
                 player.sendMessage(ChatColor.RED + "⚠ You do not have permission to use this command!");
                 return true;
             } else if (args.length == 0) {
-                player.sendMessage(ChatColor.RED + "⚠ You need to specify a kit to receive!" + ChatColor.RESET + ChatColor.GRAY + " /kit " + ChatColor.UNDERLINE + "<kit>");
+                player.sendMessage(ChatColor.RED + "⚠ You need to specify a kit to receive!" + ChatColor.RESET + ChatColor.GRAY + " Usage: /kit " + ChatColor.UNDERLINE + "<kit>" + ChatColor.RESET);
                 return true;
             } else {
                 switch (args[0]) {
@@ -53,7 +53,7 @@ public class KitCommand implements CommandExecutor {
                 }
             }
         } else {
-            sender.sendMessage(ChatColor.DARK_RED + "You can only execute this as a player");
+            sender.sendMessage(ChatColor.DARK_RED + "You can only execute this as a player!");
             return true;
         }
     }

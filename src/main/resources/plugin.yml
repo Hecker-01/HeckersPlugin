@@ -1,4 +1,4 @@
-name: TestPlugin
+name: HeckersPlugin
 version: '${project.version}'
 main: net.heckerdev.heckersplugin.HeckersPlugin
 api-version: '1.17'

@@ -36,7 +36,7 @@ public class CommandBook implements CommandExecutor {
 
                 bookMeta.spigot().addPage(page0);
                 bookMeta.setTitle("A very cool book!");
-                bookMeta.setAuthor("Amogus Bobby");
+                bookMeta.setAuthor("Hecker_01");
 
                 book.setItemMeta(bookMeta);
 
@@ -44,7 +44,7 @@ public class CommandBook implements CommandExecutor {
                 return true;
             } else player.sendMessage(org.bukkit.ChatColor.RED + "⚠ You do not have permission to use this command!");
         } else {
-            sender.sendMessage(org.bukkit.ChatColor.DARK_RED + "You can only execute this as a player");
+            sender.sendMessage(org.bukkit.ChatColor.DARK_RED + "You can only execute this as a player!");
         }
         return true;
     }
