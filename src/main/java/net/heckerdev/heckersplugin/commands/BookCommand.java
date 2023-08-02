@@ -1,4 +1,4 @@
-package net.heckerdev.heckersplugin;
+package net.heckerdev.heckersplugin.commands;
 
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.BaseComponent;
@@ -14,7 +14,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
 import org.jetbrains.annotations.NotNull;
 
-public class CommandBook implements CommandExecutor {
+public class BookCommand implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, String[] args) {
         if (sender instanceof Player) {
@@ -25,11 +25,19 @@ public class CommandBook implements CommandExecutor {
                 ItemStack book = new ItemStack(Material.WRITTEN_BOOK);
                 BookMeta bookMeta = (BookMeta) book.getItemMeta();
 
-                BaseComponent[] page0 = new ComponentBuilder("Get 1 diamond and 20 bricks!").color(ChatColor.BLUE).bold(false).underlined(true)
-                        .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/kit kit1"))
-                        .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Execute /kit.").create()))
-                        .append(" OR ").color(ChatColor.DARK_RED).bold(true).underlined(false)
-                        .append("Get this book (again).").color(ChatColor.BLUE).bold(false).underlined(true)
+                BaseComponent[] page0 = new ComponentBuilder("Get 1 Diamond and 20 Bricks!").color(ChatColor.DARK_BLUE).bold(false).underlined(true)
+                        .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/kit kit"))
+                        .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Execute /kit kit.").create()))
+                        .append(", ").color(ChatColor.RESET)
+                        .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, ""))
+                        .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("").create()))
+                        .append("Get 1 Oak Plank.").color(ChatColor.DARK_BLUE).bold(false).underlined(true)
+                        .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/kit wood"))
+                        .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Execute /kit wood.").create()))
+                        .append(" OR ").color(ChatColor.RESET).bold(true).underlined(false)
+                        .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, ""))
+                        .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("").create()))
+                        .append("Get this book (again).").color(ChatColor.DARK_BLUE).bold(false).underlined(true)
                         .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/book"))
                         .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Execute /book.").create()))
                         .create();
@@ -41,6 +49,7 @@ public class CommandBook implements CommandExecutor {
                 book.setItemMeta(bookMeta);
 
                 player.getInventory().addItem(book);
+                player.sendMessage(org.bukkit.ChatColor.GREEN + org.bukkit.ChatColor.BOLD.toString() + "✔" + org.bukkit.ChatColor.RESET + org.bukkit.ChatColor.GREEN + " Successfully received book!");
                 return true;
             } else player.sendMessage(org.bukkit.ChatColor.RED + "⚠ You do not have permission to use this command!");
         } else {

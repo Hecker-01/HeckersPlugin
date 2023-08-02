@@ -1,4 +1,4 @@
-package net.heckerdev.heckersplugin;
+package net.heckerdev.heckersplugin.commands;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -22,8 +22,8 @@ public class KitCommand implements CommandExecutor {
                 return true;
             } else {
                 switch (args[0]) {
-                    case "kit1":
-                        if (player.hasPermission("testplugin.command.kit.kit1")) {
+                    case "kit":
+                        if (player.hasPermission("testplugin.command.kit.kit")) {
                             ItemStack diamond = new ItemStack(Material.DIAMOND);
 
                             ItemStack bricks = new ItemStack(Material.BRICK, 20);
@@ -34,8 +34,8 @@ public class KitCommand implements CommandExecutor {
                             player.sendMessage(ChatColor.RED + "⚠ You do not have permission to receive this kit!");
                         }
                         return true;
-                    case "kit2":
-                        if (player.hasPermission("testplugin.command.kit.kit2")) {
+                    case "wood":
+                        if (player.hasPermission("testplugin.command.kit.wood")) {
                             ItemStack wood = new ItemStack(Material.OAK_PLANKS);
 
                             player.getInventory().addItem(wood);
@@ -44,8 +44,8 @@ public class KitCommand implements CommandExecutor {
                             player.sendMessage(ChatColor.RED + "⚠ You do not have permission to receive this kit!");
                         }
                         return true;
-                    case "help":
-                        player.sendMessage("A help menu will implemented soon!");
+                    case "list":
+                        player.sendMessage("Current available kits: \"kit\", \"wood\"");
                         return true;
                     default:
                         player.sendMessage(ChatColor.RED + "⚠ Kit \"" + args[0] + "\" Does not exist!");
