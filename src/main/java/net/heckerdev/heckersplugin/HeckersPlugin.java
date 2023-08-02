@@ -3,6 +3,7 @@ package net.heckerdev.heckersplugin;
 import net.heckerdev.heckersplugin.commands.BookCommand;
 import net.heckerdev.heckersplugin.commands.GroupsCommand;
 import net.heckerdev.heckersplugin.commands.KitCommand;
+import net.heckerdev.heckersplugin.commands.SpawnCommand;
 import net.heckerdev.heckersplugin.events.BlockBreakEventListener;
 import net.heckerdev.heckersplugin.events.BlockPlaceEventListener;
 import net.heckerdev.heckersplugin.events.PlayerJoinEventListener;
@@ -25,6 +26,7 @@ public final class HeckersPlugin extends JavaPlugin {
         // Registering commands.
         Objects.requireNonNull(this.getCommand("kit")).setExecutor(new KitCommand());
         Objects.requireNonNull(this.getCommand("book")).setExecutor(new BookCommand());
+        Objects.requireNonNull(this.getCommand("spawn")).setExecutor(new SpawnCommand());
         Objects.requireNonNull(this.getCommand("groups")).setExecutor(new GroupsCommand(this));
 
         // registering listeners.

@@ -9,6 +9,9 @@ commands:
   book:
     description: Gives you a book.
     usage: /book
+  spawn:
+    description: Teleports you to spawn.
+    usage: /spawn
   groups:
     description: Get the groups of yourself or another player
     usage: /groups (optional) <player>
