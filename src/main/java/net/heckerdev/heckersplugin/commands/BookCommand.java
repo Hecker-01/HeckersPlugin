@@ -25,19 +25,19 @@ public class BookCommand implements CommandExecutor {
                 ItemStack book = new ItemStack(Material.WRITTEN_BOOK);
                 BookMeta bookMeta = (BookMeta) book.getItemMeta();
 
-                BaseComponent[] page0 = new ComponentBuilder("Get 1 Diamond and 20 Bricks!").color(ChatColor.DARK_BLUE).bold(false).underlined(true)
+                BaseComponent[] page0 = new ComponentBuilder("Get 1 Diamond and 20 Bricks!").color(ChatColor.DARK_AQUA).bold(false).underlined(true)
                         .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/kit kit"))
                         .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Execute /kit kit.").create()))
                         .append(", ").color(ChatColor.RESET)
                         .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, ""))
                         .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("").create()))
-                        .append("Get 1 Oak Plank.").color(ChatColor.DARK_BLUE).bold(false).underlined(true)
+                        .append("Get 1 Oak Plank.").color(ChatColor.DARK_AQUA).bold(false).underlined(true)
                         .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/kit wood"))
                         .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Execute /kit wood.").create()))
                         .append(" OR ").color(ChatColor.RESET).bold(true).underlined(false)
                         .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, ""))
                         .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("").create()))
-                        .append("Get this book (again).").color(ChatColor.DARK_BLUE).bold(false).underlined(true)
+                        .append("Get this book (again).").color(ChatColor.DARK_AQUA).bold(false).underlined(true)
                         .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/book"))
                         .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Execute /book.").create()))
                         .create();
